@@ -2,7 +2,7 @@
 
 namespace clagiordano\weblibs\dataexport;
 
-use AbstractExporter;
+use clagiordano\weblibs\dataexport\AbstractExporter;
 
 /**
  * Class to export data to xls format and write a file and/or download them.

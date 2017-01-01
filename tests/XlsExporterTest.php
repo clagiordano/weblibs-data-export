@@ -1,8 +1,8 @@
 <?php
 
-namespace clagiordano\weblibs\dataexporter\tests;
+namespace clagiordano\weblibs\dataexport\tests;
 
-use clagiordano\weblibs\dataexporter\XlsExporter;
+use clagiordano\weblibs\dataexport\XlsExporter;
 
 /**
  * Class XlsExporterTest
@@ -10,4 +10,15 @@ use clagiordano\weblibs\dataexporter\XlsExporter;
  */
 class XlsExporterTest extends \PHPUnit_Framework_TestCase
 {
+    private $class = null;
+
+    public function setUp()
+    {
+        $this->class = new XlsExporter();
+    }
+
+    public function testTest()
+    {
+
+    }
 }
