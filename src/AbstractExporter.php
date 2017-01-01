@@ -68,11 +68,11 @@ abstract class AbstractExporter
 
     /**
      * Write a file on disk and, if reuired, download them.
+     * @throw \RuntimeException
+     * @return bool
      */
     public function writeFile()
     {
-        $this->xlsEOF();
-
         $this->fileHandle = fopen($this->fileName, 'w+');
         if ($this->fileHandle === false) {
             throw new \RuntimeException(
