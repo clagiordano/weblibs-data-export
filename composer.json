@@ -10,9 +10,6 @@
             "email": "claudio.giordano@autistici.org"
         }
     ],
-    "require": {
-        "php": ">=5.4"
-    },
     "support": {
         "email": "claudio.giordano@autistici.org"
     },
@@ -26,4 +23,12 @@
             "clagiordano\\weblibs\\dataexport\\tests\\": "tests/"
         }
     },
+    "require": {
+        "php": ">=5.4",
+        "clagiordano/weblibs-dbabstraction": "*"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "*",
+        "zf2timo/phpunit-pretty-result-printer": "1.0.0"
+    }
 }

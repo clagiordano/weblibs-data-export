@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<ruleset name="Package Test Suite">
+    <description>The coding standard for PHP_CodeSniffer itself.</description>
+    <!--<include-pattern>../src/*</include-pattern>-->
+    <exclude-pattern>../tests/*</exclude-pattern>
+
+    <rule ref="PSR2"/>
+</ruleset>
