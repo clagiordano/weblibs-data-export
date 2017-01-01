@@ -1,0 +1,29 @@
+{
+    "name": "clagiordano/weblibs-data-export",
+    "description": "Library for generic data export to various formats\"",
+    "type": "library",
+    "license": "LGPL-3.0",
+    "keywords": ["clagiordano", "weblibs", "data", "export", "library", "xls", "excel", "csv"],
+    "authors": [
+        {
+            "name": "Claudio Giordano",
+            "email": "claudio.giordano@autistici.org"
+        }
+    ],
+    "require": {
+        "php": ">=5.4"
+    },
+    "support": {
+        "email": "claudio.giordano@autistici.org"
+    },
+    "autoload": {
+        "psr-4": {
+            "clagiordano\\weblibs\\dataexport\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "clagiordano\\weblibs\\dataexport\\tests\\": "tests/"
+        }
+    },
+}
