@@ -83,6 +83,6 @@ class XlsExporter extends AbstractExporter
     {
         $this->eof();
 
-        return parent::writeFile()
+        return parent::writeFile();
     }
 }
