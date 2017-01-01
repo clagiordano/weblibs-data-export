@@ -14,6 +14,8 @@ abstract class AbstractExporter
     protected $dataOutput = "";
     /** @var bool $writeStatus */
     protected $writeStatus = false;
+    /** @var string $contentType */
+    protected $contentType = "text/plain";
 
     /**
      * @constructor
@@ -27,9 +29,9 @@ abstract class AbstractExporter
         if (!OutputMethods::isValid($outputMethod)) {
             throw new \InvalidArgumentException(
                 __METHOD__ . ": Invalid output method selected,"
-                . " valid method are only: '"
-                . implode("', '", OutputMethods::isValid($outputMethod))
-                . "'"
+                . " valid method are only one of: '"
+                . implode("', '", OutputMethods::getMethods())
+                . "'."
             );
         }
 
@@ -57,9 +59,9 @@ abstract class AbstractExporter
         header("Expires: 0");
         header('Content-Transfer-Encoding: none');
         // This should work for IE & Opera
-        header('Content-Type: application/vnd.ms-excel;');
+        header("Content-Type: {$this->contentType};");
         // This should work for the rest
-        header("Content-type: application/vnd.ms-excel");
+        header("Content-type: {$this->contentType}");
         header('Content-Disposition: attachment; filename="'
             . basename($this->fileName) . '"');
         readfile($this->fileName);
@@ -67,28 +69,21 @@ abstract class AbstractExporter
     }
 
     /**
-     * Write a file on disk and, if reuired, download them.
+     * Write a file on disk and, if reuired, send download header and drop file.
      * @throw \RuntimeException
      * @return bool
      */
     public function writeFile()
     {
-        $this->fileHandle = fopen($this->fileName, 'w+');
-        if ($this->fileHandle === false) {
-            throw new \RuntimeException(
-                "[" . __METHOD__ . "]: Unable to open file '{$this->fileName}'"
+        try {
+            file_put_contents($this->fileName, $this->dataOutput);
+            $this->writeStatus = true;
+        } catch (\Exception $exc) {
+             throw new \RuntimeException(
+                __METHOD__ . ": Failed to write file on path '{$this->fileName}'"
             );
         }
-
-        if (fwrite($this->fileHandle, $this->dataOutput)) {
-            throw new \RuntimeException(
-                "[" . __METHOD__ . "]: Unable to write file '{$this->fileName}'"
-            );
-        }
-
-        fclose($this->fileHandle);
-        $this->writeStatus = true;
-
+        
         if ($this->outputMethod == "download") {
             $this->sendHeaders();
         }

@@ -10,6 +10,9 @@ use clagiordano\weblibs\dataexport\AbstractExporter;
  */
 class XlsExporter extends AbstractExporter
 {
+    /** @var string $contentType override with specific content type for download */
+    protected $contentType = "application/vnd.ms-excel";
+
     public function __construct($fileName, $dataOutputMethod = "download")
     {
         parent::__construct($fileName, $dataOutputMethod);
