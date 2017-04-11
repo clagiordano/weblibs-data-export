@@ -2,6 +2,10 @@
 
 namespace clagiordano\weblibs\dataexport;
 
+/**
+ * Class AbstractExporter
+ * @package clagiordano\weblibs\dataexport
+ */
 abstract class AbstractExporter
 {
     /** @var string $fileName */
@@ -80,8 +84,8 @@ abstract class AbstractExporter
             $this->writeStatus = true;
         } catch (\Exception $exc) {
              throw new \RuntimeException(
-                __METHOD__ . ": Failed to write file on path '{$this->fileName}'"
-            );
+                 __METHOD__ . ": Failed to write file on path '{$this->fileName}'"
+             );
         }
         
         if ($this->outputMethod == "download") {

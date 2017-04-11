@@ -2,8 +2,6 @@
 
 namespace clagiordano\weblibs\dataexport;
 
-use clagiordano\weblibs\dataexport\AbstractExporter;
-
 /**
  * Class to export data to xls format and write a file and/or download them.
  * @package data-export
@@ -13,6 +11,11 @@ class XlsExporter extends AbstractExporter
     /** @var string $contentType override with specific content type for download */
     protected $contentType = "application/vnd.ms-excel";
 
+    /**
+     * XlsExporter constructor.
+     * @param string $fileName
+     * @param string $dataOutputMethod
+     */
     public function __construct($fileName, $dataOutputMethod = "download")
     {
         parent::__construct($fileName, $dataOutputMethod);
