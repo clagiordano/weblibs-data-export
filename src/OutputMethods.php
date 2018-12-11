@@ -2,6 +2,10 @@
 
 namespace clagiordano\weblibs\dataexport;
 
+/**
+ * Class OutputMethods
+ * @package clagiordano\weblibs\dataexport
+ */
 class OutputMethods
 {
     /** @var array $methods */

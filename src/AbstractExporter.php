@@ -25,8 +25,6 @@ abstract class AbstractExporter
      * @constructor
      * @param string $fileName
      * @param string $outputMethod
-     *
-     * @return \clagiordano\weblibs\dataexport\AbstractExporter
      */
     public function __construct($fileName, $outputMethod = "download")
     {
