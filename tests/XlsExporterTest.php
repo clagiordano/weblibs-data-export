@@ -3,12 +3,13 @@
 namespace clagiordano\weblibs\dataexport\tests;
 
 use clagiordano\weblibs\dataexport\XlsExporter;
+use \PHPUnit_Framework_TestCase;
 
 /**
  * Class XlsExporterTest
  * @package clagiordano\weblibs\validator\tests
  */
-class XlsExporterTest extends \PHPUnit_Framework_TestCase
+class XlsExporterTest extends PHPUnit_Framework_TestCase
 {
     /** @var XlsExporter $class */
     private $class = null;
