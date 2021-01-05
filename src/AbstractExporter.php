@@ -2,6 +2,10 @@
 
 namespace clagiordano\weblibs\dataexport;
 
+use Exception;
+use InvalidArgumentException;
+use RuntimeException;
+
 /**
  * Class AbstractExporter
  * @package clagiordano\weblibs\dataexport
@@ -29,7 +33,7 @@ abstract class AbstractExporter
     public function __construct($fileName, $outputMethod = "download")
     {
         if (!OutputMethods::isValid($outputMethod)) {
-            throw new \InvalidArgumentException(
+            throw new InvalidArgumentException(
                 __METHOD__ . ": Invalid output method selected,"
                 . " valid method are only one of: '"
                 . implode("', '", OutputMethods::getMethods())
@@ -80,8 +84,8 @@ abstract class AbstractExporter
         try {
             file_put_contents($this->fileName, $this->dataOutput);
             $this->writeStatus = true;
-        } catch (\Exception $exc) {
-             throw new \RuntimeException(
+        } catch (Exception $exc) {
+             throw new RuntimeException(
                  __METHOD__ . ": Failed to write file on path '{$this->fileName}'"
              );
         }
