@@ -16,8 +16,6 @@ abstract class AbstractExporter
     protected $fileName = null;
     /** @var string $outputMethod */
     protected $outputMethod = null;
-    /** @var resource $fileHandle */
-    protected $fileHandle = null;
     /** @var string $dataOutput */
     protected $dataOutput = "";
     /** @var bool $writeStatus */

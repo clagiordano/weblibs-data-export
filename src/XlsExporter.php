@@ -26,7 +26,7 @@ class XlsExporter extends AbstractExporter
     /**
      * Create header of xls file (begin of file)
      *
-     * @return \clagiordano\weblibs\dataexport\XlsExporter
+     * @return XlsExporter
      */
     private function bof()
     {
@@ -42,7 +42,7 @@ class XlsExporter extends AbstractExporter
      * @param int $col Column number of the file
      * @param int $value Cell content value
      *
-     * @return \clagiordano\weblibs\dataexport\XlsExporter
+     * @return XlsExporter
      */
     public function writeNumber($row, $col, $value)
     {
@@ -59,7 +59,7 @@ class XlsExporter extends AbstractExporter
      * @param int $col Column number of the file
      * @param string $value Cell content value
      *
-     * @return \clagiordano\weblibs\dataexport\XlsExporter
+     * @return XlsExporter
      */
     public function writeString($row, $col, $value)
     {
@@ -73,7 +73,7 @@ class XlsExporter extends AbstractExporter
     /**
      * Create the footer of xls file (end of file)
      *
-     * @return \clagiordano\weblibs\dataexport\XlsExporter
+     * @return XlsExporter
      */
     private function eof()
     {
