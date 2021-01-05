@@ -2,9 +2,9 @@
 
 namespace clagiordano\weblibs\dataexport;
 
-use Exception;
-use InvalidArgumentException;
-use RuntimeException;
+use \Exception;
+use \InvalidArgumentException;
+use \RuntimeException;
 
 /**
  * Class AbstractExporter
@@ -30,17 +30,8 @@ abstract class AbstractExporter
      */
     public function __construct($fileName, $outputMethod = "download")
     {
-        if (!OutputMethods::isValid($outputMethod)) {
-            throw new InvalidArgumentException(
-                __METHOD__ . ": Invalid output method selected,"
-                . " valid method are only one of: '"
-                . implode("', '", OutputMethods::getMethods())
-                . "'."
-            );
-        }
-
         $this->fileName = $fileName;
-        $this->outputMethod = $outputMethod;
+        $this->setOutputMethod(new OutputMethods(), $outputMethod);
     }
 
     /**
@@ -74,7 +65,7 @@ abstract class AbstractExporter
 
     /**
      * Write a file on disk and, if reuired, send download header and drop file.
-     * @throw \RuntimeException
+     * @throw RuntimeException
      * @return bool
      */
     public function writeFile()
@@ -93,5 +84,22 @@ abstract class AbstractExporter
         }
 
         return $this->writeStatus;
+    }
+
+    /**
+     * @param OutputMethods $outputs
+     * @param string $outputMethod
+     */
+    protected function setOutputMethod(OutputMethods $outputs, $outputMethod)
+    {
+        if (!$outputs::isValid($outputMethod)) {
+            throw new InvalidArgumentException(
+                "Invalid output method selected, valid method are only one of: '"
+                . implode("', '", $outputs::getMethods())
+                . "'."
+            );
+        }
+
+        $this->outputMethod = $outputMethod;
     }
 }
