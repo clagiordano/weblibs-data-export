@@ -8,11 +8,8 @@ namespace clagiordano\weblibs\dataexport;
  */
 class OutputMethods
 {
-    /** @var array $methods */
-    public static $methods = [
-        'save',
-        'download'
-    ];
+    const OUTPUT_SAVE = 'save';
+    const OUTPUT_DOWNLOAD = 'download';
 
     /**
      * Returns allowed output methods
@@ -21,7 +18,10 @@ class OutputMethods
      */
     public static function getMethods()
     {
-        return self::$methods;
+        return [
+            self::OUTPUT_SAVE,
+            self::OUTPUT_DOWNLOAD
+        ];
     }
 
     /**
@@ -32,6 +32,6 @@ class OutputMethods
      */
     public static function isValid($method)
     {
-        return in_array($method, self::$methods);
+        return in_array($method, self::getMethods());
     }
 }

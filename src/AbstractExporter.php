@@ -64,7 +64,7 @@ abstract class AbstractExporter
     }
 
     /**
-     * Write a file on disk and, if reuired, send download header and drop file.
+     * Write a file on disk and, if required, send download header and drop file.
      * @throw RuntimeException
      * @return bool
      */
@@ -79,7 +79,7 @@ abstract class AbstractExporter
              );
         }
         
-        if ($this->outputMethod == "download") {
+        if ($this->outputMethod == OutputMethods::OUTPUT_DOWNLOAD) {
             $this->sendHeaders();
         }
 
@@ -101,5 +101,23 @@ abstract class AbstractExporter
         }
 
         $this->outputMethod = $outputMethod;
+    }
+
+    /**
+     * Returns output method
+     * @return string
+     */
+    public function getOutputMethod()
+    {
+        return $this->outputMethod;
+    }
+
+    /**
+     * Returns output file name
+     * @return string
+     */
+    public function getFileName()
+    {
+        return $this->fileName;
     }
 }

@@ -83,7 +83,7 @@ class XlsExporter extends AbstractExporter
     }
 
     /**
-     * Write a file on disk and, if reuired, download them.
+     * Write a file on disk and, if required, download them.
      */
     public function writeFile()
     {
