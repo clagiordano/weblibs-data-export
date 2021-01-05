@@ -24,16 +24,14 @@
         }
     },
     "require": {
-        "php": ">=5.4",
+        "php": ">=7.2",
         "clagiordano/weblibs-dbabstraction": "^1"
     },
     "require-dev": {
-        "phpunit/phpunit": "^4.8",
-        "zf2timo/phpunit-pretty-result-printer": "1.0.0",
-        "clagiordano/phpunit-result-printer": "^1",
+        "phpunit/phpunit": "^8",
+        "clagiordano/phpunit-result-printer": "*",
         "squizlabs/php_codesniffer": "^3.5",
-        "phpmd/phpmd": "^2.9",
-        "ext-xdebug": "*"
+        "phpmd/phpmd": "^2.9"
     },
     "scripts": {
         "test": [
